@@ -1,0 +1,88 @@
+class Car {
+
+    field int x, y; // screen location of the car 
+    field int direction;//the lane of the car
+   /** Constructs a new car with a given location. */
+   constructor Car new(int Ax, int Ay) {
+      let x = Ax;
+      let y = Ay;
+      let direction=1;
+      do draw();
+      return this;
+   }
+
+   /** Disposes this square. */
+   method void dispose() {
+      do Memory.deAlloc(this);
+      return;
+    }
+
+//draw a car
+   method void draw() {
+        do Screen.setColor(true);
+        do Screen.drawRectangle(x, y, x+30,y+15);
+        do Screen.drawRectangle(x-10, y+15, x+40, y+22);
+        do Screen.drawCircle(x, y+22, 6);
+        do Screen.drawCircle(x+30, y+22, 6);
+        return;
+    }
+    //erase a car
+    method void erase() {
+        do Screen.setColor(false);
+        do Screen.drawRectangle(x, y, x+30,y+15);
+        do Screen.drawRectangle(x-10, y+15, x+40, y+22);
+        do Screen.drawCircle(x, y+22, 6);
+        do Screen.drawCircle(x+30, y+22,6);
+      return;
+    }
+    //move the car to lane 1
+    method void lane1() {
+        if(~(direction = 1)) {//if it's not on lane 1
+            let direction=1;
+            do erase();//erase the old car
+            let x = 30;//put new location thar the car well be on the lane1
+            let y = 47;
+            do Screen.setColor(true);
+            do draw();//draw the new car
+        }
+        return;
+    }
+      //move the car to lane 2
+    method void lane2() {
+        if(~(direction = 2)){//if it's not on lane 2
+            let direction=2;
+            do erase();//erase the old car
+            let x = 30;//put new location thar the car well be on the lane2
+            let y = 103;
+            do Screen.setColor(true);
+            do draw();//draw the new car
+        }
+        return;
+    }
+     //move the car to lane 3
+    method void lane3() {
+        if(~(direction = 3)){//if it's not on lane 3
+            let direction=3;
+            do erase();//erase the old car
+            let x = 30;//put new location thar the car well be on the lane3
+            let y = 161;
+            do Screen.setColor(true);
+            do draw();//draw the new car
+        }
+        return;
+    }
+  //move the car to lane 14
+     method void lane4() {
+        if(~(direction = 4)){//if it's not on lane 4
+            let direction=4;
+            do erase();//erase the old car
+            let x = 30;//put new location thar the car well be on the lane14
+            let y = 222;
+            do Screen.setColor(true);
+            do draw();//draw the new car
+        }
+        return;
+    }
+
+
+}

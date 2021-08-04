@@ -1,0 +1,549 @@
+function Truck.new 0
+push constant 8
+call Memory.alloc 1
+pop pointer 0
+push argument 0
+pop this 0
+push argument 1
+pop this 1
+push argument 0
+push constant 200
+sub
+pop this 2
+push constant 103
+pop this 3
+push argument 0
+push constant 70
+sub
+pop this 4
+push constant 161
+pop this 5
+push argument 0
+push constant 350
+sub
+pop this 6
+push constant 222
+pop this 7
+push pointer 0
+call Truck.draw 1
+pop temp 0
+push pointer 0
+return
+function Truck.deawNewgame 0
+push argument 0
+pop pointer 0
+push constant 445
+pop this 0
+push constant 43
+pop this 1
+push constant 445
+push constant 200
+sub
+pop this 2
+push constant 103
+pop this 3
+push constant 445
+push constant 70
+sub
+pop this 4
+push constant 161
+pop this 5
+push constant 445
+push constant 350
+sub
+pop this 6
+push constant 222
+pop this 7
+push pointer 0
+call Truck.moveTurck 1
+pop temp 0
+push constant 0
+return
+function Truck.draw 0
+push argument 0
+pop pointer 0
+push constant 0
+not
+call Screen.setColor 1
+pop temp 0
+push this 0
+push this 1
+push this 0
+push constant 50
+add
+push this 1
+push constant 20
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 0
+push constant 50
+add
+push this 1
+push constant 4
+add
+push this 0
+push constant 57
+add
+push this 1
+push constant 20
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 0
+push constant 10
+add
+push this 1
+push constant 20
+add
+push constant 8
+call Screen.drawCircle 3
+pop temp 0
+push this 0
+push constant 40
+add
+push this 1
+push constant 20
+add
+push constant 8
+call Screen.drawCircle 3
+pop temp 0
+push this 2
+push this 3
+push this 2
+push constant 50
+add
+push this 3
+push constant 20
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 2
+push constant 50
+add
+push this 3
+push constant 4
+add
+push this 2
+push constant 57
+add
+push this 3
+push constant 20
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 2
+push constant 10
+add
+push this 3
+push constant 20
+add
+push constant 8
+call Screen.drawCircle 3
+pop temp 0
+push this 2
+push constant 40
+add
+push this 3
+push constant 20
+add
+push constant 8
+call Screen.drawCircle 3
+pop temp 0
+push this 4
+push this 5
+push this 4
+push constant 50
+add
+push this 5
+push constant 20
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 4
+push constant 50
+add
+push this 5
+push constant 4
+add
+push this 4
+push constant 57
+add
+push this 5
+push constant 20
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 4
+push constant 10
+add
+push this 5
+push constant 20
+add
+push constant 8
+call Screen.drawCircle 3
+pop temp 0
+push this 4
+push constant 40
+add
+push this 5
+push constant 20
+add
+push constant 8
+call Screen.drawCircle 3
+pop temp 0
+push this 6
+push this 7
+push this 6
+push constant 50
+add
+push this 7
+push constant 20
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 6
+push constant 50
+add
+push this 7
+push constant 4
+add
+push this 6
+push constant 57
+add
+push this 7
+push constant 20
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 6
+push constant 10
+add
+push this 7
+push constant 20
+add
+push constant 8
+call Screen.drawCircle 3
+pop temp 0
+push this 6
+push constant 40
+add
+push this 7
+push constant 20
+add
+push constant 8
+call Screen.drawCircle 3
+pop temp 0
+push constant 0
+return
+function Truck.erase 0
+push argument 0
+pop pointer 0
+push constant 0
+call Screen.setColor 1
+pop temp 0
+push this 0
+push this 1
+push this 0
+push constant 50
+add
+push this 1
+push constant 20
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 0
+push constant 50
+add
+push this 1
+push constant 4
+add
+push this 0
+push constant 57
+add
+push this 1
+push constant 20
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 0
+push constant 10
+add
+push this 1
+push constant 20
+add
+push constant 8
+call Screen.drawCircle 3
+pop temp 0
+push this 0
+push constant 40
+add
+push this 1
+push constant 20
+add
+push constant 8
+call Screen.drawCircle 3
+pop temp 0
+push this 2
+push this 3
+push this 2
+push constant 50
+add
+push this 3
+push constant 20
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 2
+push constant 50
+add
+push this 3
+push constant 4
+add
+push this 2
+push constant 57
+add
+push this 3
+push constant 20
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 2
+push constant 10
+add
+push this 3
+push constant 20
+add
+push constant 8
+call Screen.drawCircle 3
+pop temp 0
+push this 2
+push constant 40
+add
+push this 3
+push constant 20
+add
+push constant 8
+call Screen.drawCircle 3
+pop temp 0
+push this 4
+push this 5
+push this 4
+push constant 50
+add
+push this 5
+push constant 20
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 4
+push constant 50
+add
+push this 5
+push constant 4
+add
+push this 4
+push constant 57
+add
+push this 5
+push constant 20
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 4
+push constant 10
+add
+push this 5
+push constant 20
+add
+push constant 8
+call Screen.drawCircle 3
+pop temp 0
+push this 4
+push constant 40
+add
+push this 5
+push constant 20
+add
+push constant 8
+call Screen.drawCircle 3
+pop temp 0
+push this 6
+push this 7
+push this 6
+push constant 50
+add
+push this 7
+push constant 20
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 6
+push constant 50
+add
+push this 7
+push constant 4
+add
+push this 6
+push constant 57
+add
+push this 7
+push constant 20
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 6
+push constant 10
+add
+push this 7
+push constant 20
+add
+push constant 8
+call Screen.drawCircle 3
+pop temp 0
+push this 6
+push constant 40
+add
+push this 7
+push constant 20
+add
+push constant 8
+call Screen.drawCircle 3
+pop temp 0
+push constant 0
+return
+function Truck.whereTurck1 0
+push argument 0
+pop pointer 0
+push this 0
+push constant 70
+lt
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 0
+not
+return
+label IF_FALSE0
+push constant 0
+return
+function Truck.whereTurck2 0
+push argument 0
+pop pointer 0
+push this 2
+push constant 70
+lt
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 0
+not
+return
+label IF_FALSE0
+push constant 0
+return
+function Truck.whereTurck3 0
+push argument 0
+pop pointer 0
+push this 4
+push constant 70
+lt
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 0
+not
+return
+label IF_FALSE0
+push constant 0
+return
+function Truck.whereTurck4 0
+push argument 0
+pop pointer 0
+push this 6
+push constant 70
+lt
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 0
+not
+return
+label IF_FALSE0
+push constant 0
+return
+function Truck.moveTurck 0
+push argument 0
+pop pointer 0
+push pointer 0
+call Truck.erase 1
+pop temp 0
+push this 0
+push constant 1
+eq
+not
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push this 0
+push constant 2
+sub
+pop this 0
+goto IF_END0
+label IF_FALSE0
+push constant 445
+pop this 0
+label IF_END0
+push this 2
+push constant 1
+eq
+not
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push this 2
+push constant 2
+sub
+pop this 2
+goto IF_END1
+label IF_FALSE1
+push constant 445
+pop this 2
+label IF_END1
+push this 4
+push constant 1
+eq
+not
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push this 4
+push constant 2
+sub
+pop this 4
+goto IF_END2
+label IF_FALSE2
+push constant 445
+pop this 4
+label IF_END2
+push this 6
+push constant 1
+eq
+not
+if-goto IF_TRUE3
+goto IF_FALSE3
+label IF_TRUE3
+push this 6
+push constant 2
+sub
+pop this 6
+goto IF_END3
+label IF_FALSE3
+push constant 445
+pop this 6
+label IF_END3
+push pointer 0
+call Truck.draw 1
+pop temp 0
+push constant 0
+return

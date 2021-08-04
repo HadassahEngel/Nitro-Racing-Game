@@ -1,0 +1,128 @@
+class Road {
+    field Array x,y; //two arrays for the starting of each line in the street
+    field int num,i,time; //num is a help for input numbers in the arr I is a conter time amout time going moveing
+    //Reboot the data where the line of the road well be
+    constructor Road new() {
+        let time=0;
+        let x= Array.new(10);
+        let y= Array.new(10);
+        let i=0;
+        let num=0;
+        while(i<9){
+            let x[i]=num;
+            let num=num+60;
+            let i=i+1;
+        }
+        let x[0]=10;
+        let x[9]=510;
+        let i=0;
+        let num=45;
+        while(i<8){
+            let y[i]=num;
+            let num=num+60;
+            let i=i+1;
+        }
+        let y[9]=511;
+        let y[8]=505;
+        do draw();
+        return this;
+   }
+   //drawing the road
+    method void draw(){
+            do Screen.setColor(true);
+            do Screen.drawRectangle(x[0], 81, y[0],84);//the first lane
+            do Screen.drawRectangle(x[1], 81, y[1],84);
+            do Screen.drawRectangle(x[2], 81, y[2],84);
+            do Screen.drawRectangle(x[3], 81, y[3],84);
+            do Screen.drawRectangle(x[4], 81, y[4],84);
+            do Screen.drawRectangle(x[5], 81, y[5],84);
+            do Screen.drawRectangle(x[6], 81, y[6],84);
+            do Screen.drawRectangle(x[7], 81, y[7],84);
+            do Screen.drawRectangle(x[8], 81, y[8],84);
+            do Screen.drawRectangle(x[9], 81, y[9],84);
+            do Screen.drawRectangle(x[0], 137, y[0],140);//secont lane
+            do Screen.drawRectangle(x[1], 137, y[1],140);  
+            do Screen.drawRectangle(x[2], 137, y[2],140);
+            do Screen.drawRectangle(x[3], 137, y[3],140);
+            do Screen.drawRectangle(x[4], 137, y[4],140);
+            do Screen.drawRectangle(x[5], 137, y[5],140);
+            do Screen.drawRectangle(x[6], 137, y[6],140);
+            do Screen.drawRectangle(x[7], 137, y[7],140);
+            do Screen.drawRectangle(x[8], 137, y[8],140);
+            do Screen.drawRectangle(x[9], 137, y[9],140);
+            do Screen.drawRectangle(x[0], 195, y[0],198);//The third lane
+            do Screen.drawRectangle(x[1], 195, y[1],198);
+            do Screen.drawRectangle(x[2], 195, y[2],198);
+            do Screen.drawRectangle(x[3], 195, y[3],198);
+            do Screen.drawRectangle(x[4], 195, y[4],198);
+            do Screen.drawRectangle(x[5], 195, y[5],198);
+            do Screen.drawRectangle(x[6], 195, y[6],198);
+            do Screen.drawRectangle(x[7], 195, y[7],198);
+            do Screen.drawRectangle(x[8], 195, y[8],198);
+             do Screen.drawRectangle(x[9], 195, y[9],198);
+            return;
+   }
+   //erasing the road
+    method void erase() {
+                do Screen.setColor(false);
+         do Screen.drawRectangle(x[0], 81, y[0],84);//the first lane
+            do Screen.drawRectangle(x[1], 81, y[1],84);
+            do Screen.drawRectangle(x[2], 81, y[2],84);
+            do Screen.drawRectangle(x[3], 81, y[3],84);
+            do Screen.drawRectangle(x[4], 81, y[4],84);
+            do Screen.drawRectangle(x[5], 81, y[5],84);
+            do Screen.drawRectangle(x[6], 81, y[6],84);
+            do Screen.drawRectangle(x[7], 81, y[7],84);
+            do Screen.drawRectangle(x[8], 81, y[8],84);
+            do Screen.drawRectangle(x[9], 81, y[9],84);
+            do Screen.drawRectangle(x[0], 137, y[0],140);//the secont lane
+            do Screen.drawRectangle(x[1], 137, y[1],140);  
+            do Screen.drawRectangle(x[2], 137, y[2],140);
+            do Screen.drawRectangle(x[3], 137, y[3],140);
+            do Screen.drawRectangle(x[4], 137, y[4],140);
+            do Screen.drawRectangle(x[5], 137, y[5],140);
+            do Screen.drawRectangle(x[6], 137, y[6],140);
+            do Screen.drawRectangle(x[7], 137, y[7],140);
+            do Screen.drawRectangle(x[8], 137, y[8],140);
+            do Screen.drawRectangle(x[9], 137, y[9],140);
+            do Screen.drawRectangle(x[0], 195, y[0],198);//The third lane
+            do Screen.drawRectangle(x[1], 195, y[1],198);
+            do Screen.drawRectangle(x[2], 195, y[2],198);
+            do Screen.drawRectangle(x[3], 195, y[3],198);
+            do Screen.drawRectangle(x[4], 195, y[4],198);
+            do Screen.drawRectangle(x[5], 195, y[5],198);
+            do Screen.drawRectangle(x[6], 195, y[6],198);
+            do Screen.drawRectangle(x[7], 195, y[7],198);
+            do Screen.drawRectangle(x[8], 195, y[8],198);
+           do Screen.drawRectangle(x[9], 195, y[9],198);
+            return;
+    }
+    //move thr road
+    method void moveRoad(){
+        let time=0;//the road needs to move at a higher speed than the trucks (Supposedly the car move faster then the truck)
+        while(time<3){
+        do erase();//erase the old road
+        let i=0;
+        while(i<9){//move the road in 2 pixel make sure that doesn't exits the screen area
+            if(x[i]=0){
+            if(y[i]=1){
+                let x[i]=466;
+                let y[i]=511;
+                let x[9]=511;
+            }else{
+                let x[i]=0;
+                let y[i]=y[i]-2;
+                let x[9]=x[9]-2;
+            }
+        }else{
+            let x[i]=x[i]-2;
+            let  y[i]= y[i]-2;
+        }
+        let i=i+1;
+        }
+
+        do draw();//draw the new road
+        let time=time+1;}
+        return;
+    }
+}

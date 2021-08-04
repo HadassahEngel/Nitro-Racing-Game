@@ -1,0 +1,142 @@
+class Truck {
+    field int x1, y1; // location of the first truck
+    field int x2, y2;//// location of the secnt truck
+    field int x3, y3;// location of the third truck
+    field int x4, y4;// location of the fourth truck
+   
+   /** Constructs a new Trucks with a given location . */
+   constructor Truck new(int Ax, int Ay) {
+        let x1 = Ax;
+        let y1 = Ay;
+        let x2 = Ax - 200;
+        let y2 = 103;
+        let x3 = Ax - 70;
+        let y3 = 161;
+        let x4 = Ax - 350;
+        let y4 = 222;
+        do draw();
+        return this;
+   }
+   //when the new life then the truck start from a new location 
+    method void deawNewgame(){
+        let x1 = 445;
+        let y1 = 43;
+        let x2 = 445 - 200;
+        let y2 = 103;
+        let x3 = 445 - 70;
+        let y3 = 161;
+        let x4 = 445 - 350;
+        let y4 = 222;
+        do moveTurck();
+        return;
+    }
+   /** Disposes this square. */
+//    method void dispose() {
+//       do Memory.deAlloc(this);
+//       return;
+//     }
+//draw the 4 trucks
+   method void draw() {
+        do Screen.setColor(true);
+        do Screen.drawRectangle(x1, y1, x1+50,y1+20);
+        do Screen.drawRectangle(x1+50, y1+4, x1+57, y1+20);
+        do Screen.drawCircle(x1+10, y1+20, 8);
+        do Screen.drawCircle(x1+40, y1+20, 8);
+
+        do Screen.drawRectangle(x2, y2, x2+50,y2+20);
+        do Screen.drawRectangle(x2+50, y2+4, x2+57, y2+20);
+        do Screen.drawCircle(x2+10, y2+20, 8);
+        do Screen.drawCircle(x2+40, y2+20, 8);
+
+        do Screen.drawRectangle(x3, y3, x3+50,y3+20);
+        do Screen.drawRectangle(x3+50, y3+4, x3+57, y3+20);
+        do Screen.drawCircle(x3+10, y3+20, 8);
+        do Screen.drawCircle(x3+40, y3+20, 8);
+
+        do Screen.drawRectangle(x4, y4, x4+50,y4+20);
+        do Screen.drawRectangle(x4+50, y4+4, x4+57, y4+20);
+        do Screen.drawCircle(x4+10, y4+20, 8);
+        do Screen.drawCircle(x4+40, y4+20, 8);
+        return;
+    }
+    //erase the 4 turcks
+    method void erase() {
+        do Screen.setColor(false);
+        do Screen.drawRectangle(x1, y1, x1+50,y1+20);
+        do Screen.drawRectangle(x1+50, y1+4, x1+57, y1+20);
+        do Screen.drawCircle(x1+10, y1+20, 8);
+        do Screen.drawCircle(x1+40, y1+20, 8);
+
+        do Screen.drawRectangle(x2, y2, x2+50,y2+20);
+        do Screen.drawRectangle(x2+50, y2+4, x2+57, y2+20);
+        do Screen.drawCircle(x2+10, y2+20, 8);
+        do Screen.drawCircle(x2+40, y2+20, 8);
+
+        do Screen.drawRectangle(x3, y3, x3+50,y3+20);
+        do Screen.drawRectangle(x3+50, y3+4, x3+57, y3+20);
+        do Screen.drawCircle(x3+10, y3+20, 8);
+        do Screen.drawCircle(x3+40, y3+20, 8);
+
+        do Screen.drawRectangle(x4, y4, x4+50,y4+20);
+        do Screen.drawRectangle(x4+50, y4+4, x4+57, y4+20);
+        do Screen.drawCircle(x4+10, y4+20, 8);
+        do Screen.drawCircle(x4+40, y4+20, 8);
+      return;
+    }
+    //check if the first turck crash the car
+    method boolean whereTurck1(){
+        if(x1<70){//if the truck is in location  less than 70 then clash
+            return true;
+        }
+        return false;
+    }
+    //check if the secnt turck crash the car
+    method boolean whereTurck2(){
+        if(x2<70){//if the truck is in location  less than 70 then clash
+            return true;
+        }
+        return false;
+    }
+    //check if the third turck crash the car
+    method boolean whereTurck3(){
+        if(x3<70){//if the truck is in location  less than 70 then clash
+            return true;
+        }
+        return  false;
+    }
+    //check if the fourth  turck crash the car
+     method boolean whereTurck4(){
+        if(x4<70){//if the truck is in location  less than 70 then clash
+            return true;
+        }
+        return  false;
+    }
+    //mome all the turcks
+    method void moveTurck(){
+        do erase();//erase the old turcks
+        if(~(x1=1)){//if it's not out of the screen area move in 2 pixel
+            let x1=x1-2;
+        }
+        else{
+            let x1=445;//if it's  out of the screen area put a new turck in on the road
+        }
+        if(~(x2=1)){
+           let x2=x2-2;
+        } else{
+            let x2=445;
+        }
+        if(~(x3=1)){
+            let x3=x3-2;
+        } else{
+            let x3=445;
+        }
+        if(~(x4=1)){
+            let x4=x4-2;
+        } else{
+            let x4=445;
+        }
+        do draw();//draw the new turcks
+        return;
+    }
+
+}

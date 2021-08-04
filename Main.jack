@@ -1,0 +1,22 @@
+class Main {
+
+   /** Initializes a new game and starts it. */    
+   function void main() {
+        var ControlGame game;
+        //Writing a title and detail on the game
+        do Output.moveCursor(1,25);
+        do Output.printString("intio raking") ;
+        do Output.moveCursor(0,45);
+        do Output.printString("time of game:") ;
+        do Output.moveCursor(0,0);
+        do Output.printString("number of life left:") ;
+        do Output.moveCursor(0,20);
+        do Output.printString("3") ;
+        do Screen.setColor(true);
+        do Screen.drawRectangle(0, 30, 511,35);
+        let game = ControlGame.new();
+        do game.run();
+	    do game.dispose();
+        return;
+    }
+}

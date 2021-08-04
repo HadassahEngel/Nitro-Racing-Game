@@ -1,0 +1,170 @@
+class ControlGame {
+
+    field Car car; // the car of the game
+    field int direction; // the lane that the car is in: 
+    field int  timeOfGame,moves;  //anount mones and the
+    field Truck truck;//the trucks of the game
+    field Road road;//the road of the game
+    field boolean win; //check if won the gane
+   /** Constructs a new  Game. */
+    constructor ControlGame new() {
+        let car = Car.new(30,47);
+        let truck = Truck.new(445, 43);
+        let road=Road.new();
+        let direction = 1;
+        let timeOfGame=0;
+        let moves=0;
+        let win=false;
+        return this;
+    }
+
+   /** Disposes this game. */
+   method void dispose() {
+      do car.dispose();
+      do Memory.deAlloc(this);
+      return;
+   }
+
+    //move the car according to the button that was pressed
+    method void moveCar() {
+        if (direction = 1) { do car.lane1(); }
+        if (direction = 2) { do car.lane2(); }
+        if (direction = 3) { do car.lane3(); }
+        if (direction = 4) { do car.lane4(); }
+        return;
+   }
+    method void run() {
+        var boolean exit;
+        var int life;//life
+        let exit = false;
+        while (~exit) {
+            let life=0;//first life
+            while(life < 3){
+
+                do  car.draw();//draw car
+                let exit=life();//start the game if return true stop whit out lose the gmee
+                do road.erase();//erase all what on the screen
+                do truck.erase();
+                do car.erase();
+                if(exit){//didn't lose the gam
+                    let life=3;//to exit the loop
+                    if(~(win)){
+                        do Output.moveCursor(9,30);
+                        do Output.printString("you quit game") ; //write 
+                    }
+                }else{
+                    do Output.moveCursor(10,30);
+                    do Output.printString(" loss of life") ;//write that loss a life
+                    let life=life+1;//one more life used
+                    do Output.moveCursor(0,20);
+                    do Output.printInt(3-life) ;//num of lift left
+                    do Output.moveCursor(10,30);
+                    do Sys.wait(2000);
+                    do Output.printString("              ") ;//earse the loss of life
+                    do truck.deawNewgame();//deaw a new game (not continue on old game)
+                    let direction = 1;//put car on lane 1
+                    do  moveCar();
+                } 
+            }
+        let exit=true;
+        do road.erase();//erase all screen ecsept details on game
+        do truck.erase();
+        do car.erase();
+        if(win){//if won write that won
+            do Output.moveCursor(10,30);
+            do Output.printString("you won!!!!") ;
+        }
+        else{
+            do Output.moveCursor(10,30);
+        do Output.printString("game over!!!!!!!") ;//write game over and sorce
+        do Output.moveCursor(11,30);
+        do Output.printString("your sorce: ") ;
+         do Output.printInt(timeOfGame) ;
+        }
+      }
+    return;
+   }
+    //start to play
+   method boolean life(){
+        var char key;  // the key currently pressed by the user
+        var boolean exit;//
+        let exit = false;
+        while (~exit) {
+         // waits for a key to be pressed
+        while (key = 0) {
+            let key = Keyboard.keyPressed();//put in key wat press
+            do road.moveRoad();//move the road and turcks
+            do truck.moveTurck();
+            do updateTimeGame();//update the time of the game
+            if(timeOfGame=1000){//win if you have sorce 1000
+            let win=true;
+            return true;
+        }
+            if(checkClash()){//check if clash so return flase
+                return false;
+            }
+            do Sys.wait(15);
+        }
+
+        if (key = 81)  { let exit = true; }     // q key to quit
+        if (key = 49) { let direction=1; do moveCar(); }   //number 1
+        if (key = 50) { let direction=2; do moveCar();}  //number 2
+        if (key = 51) { let direction=3; do moveCar();}  //number 3
+        if (key = 52) { let direction=4; do moveCar();}   //number 4
+      
+         while (~(key = 0)) {
+            let key = Keyboard.keyPressed();//put in key what pressed
+            do road.moveRoad();//move the road and turck
+            do truck.moveTurck();
+             do updateTimeGame();
+           if(timeOfGame=1000){//check if won
+            let win=true;
+            return true;
+        }
+            if(checkClash()){//if clash so return false
+                return false;
+            }
+            do Sys.wait(15);
+         }
+       
+     } 
+     return true;
+   }
+   //check if clashes occuding to the lane that the car is of
+   method boolean checkClash(){
+       if(direction = 1){//if the car is on lane 1 check where is turck 1
+                if(truck.whereTurck1()){
+                    return true;
+                }
+            }
+             if(direction=2){//if the car is on lane 2 check where is turck 2
+                if(truck.whereTurck2()){
+                    return true;
+                }
+            }
+             if(direction=3){//if the car is on lane 3 check where is turck 3
+                if(truck.whereTurck3()){
+                    return true;
+                }
+            }
+            if(direction=4){//if the car is on lane 4 check where is turck 4
+                if(truck.whereTurck4()){
+                    return true;
+                }
+            }
+            return false;
+   }
+   //add time of game
+    method void updateTimeGame(){
+         let moves=moves+1;//add 1 move
+            if(moves=10){//after 10 moves add to time
+                let moves = 0;
+                let timeOfGame=timeOfGame+1;
+                do Output.moveCursor(0,60);
+                do Output.printInt(timeOfGame) ;
+            }
+            return;
+    }
+    
+
+}
