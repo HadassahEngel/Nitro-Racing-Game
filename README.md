@@ -1,11 +1,11 @@
 # Nitro-Racing-Game
 Nitro Racing is a computer game in which a car has to travel on the road without encountering trucks. The game is written in the Jack language
 
-**Installation:**
+### Installation:
 
 Download the software suite from [nand2tetris](https://www.nand2tetris.org/software). The compiler and emulator are required as Jack programs run on the Hack hardware platform.
 
-**Build & Execution:**
+### Build & Execution:
 
 1. Use jackComplier to compile the the VM files attached
 
@@ -15,8 +15,10 @@ Download the software suite from [nand2tetris](https://www.nand2tetris.org/softw
 
 4. In the toolbar, click the double right arrows (3rd icon)
 
-**Play the game:**
+### Play the game:
 
-Switch between lanes by clicking on the lane number.
+Switch between lanes by clicking on the lane number `1`, `2`, `3` or `4`.
 
-For example to switch to lane 1 press number 1 on the keyboard
+For example to switch to lane 1 press `1` on the keyboard
+
+## Enjoy!!
