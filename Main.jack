@@ -5,7 +5,7 @@ class Main {
         var ControlGame game;
         //Writing a title and detail on the game
         do Output.moveCursor(1,25);
-        do Output.printString("intio raking") ;
+        do Output.printString("Nitro Racing") ;
         do Output.moveCursor(0,45);
         do Output.printString("time of game:") ;
         do Output.moveCursor(0,0);
