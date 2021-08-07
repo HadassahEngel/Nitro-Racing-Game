@@ -7,7 +7,7 @@ Download the software suite from [nand2tetris](https://www.nand2tetris.org/softw
 
 ### Build & Execution:
 
-1. Use jackComplier to compile the the VM files attached
+1. Use jackComplier to compile the VM files attached
 
 2. Use VMEmulator to run complied VM code. Choose the directory containing the vm files.
 
